@@ -1,0 +1,6 @@
+Name: greet.rpc
+ListenOn: 127.0.0.1:8080
+Log:
+  Encoding: plain
+DataSource: root:123456@tcp(127.0.0.1:3306)/shorturl?charset=utf8mb4&parseTime=true
+

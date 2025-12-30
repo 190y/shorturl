@@ -1,0 +1,40 @@
+syntax = "v1"
+
+type (
+	resp {
+		msg string `json:"msg"`
+	}
+	HelloReq {
+		Name string `form:"name,optional"`
+	}
+	HelloResp {
+		Name string `json:"name"`
+	}
+	ShortenReq {
+		LongUrl string `json:"longUrl"`
+	}
+	ShortenResp {
+		Code string `json:"code"`
+	}
+	ResolveReq {
+		Code string `form:"code"`
+	}
+	ResolveResp {
+		LongUrl string `json:"longUrl"`
+	}
+)
+
+service greet {
+	@handler ping
+	get /ping returns (resp)
+
+	@handler HelloHandler
+	get /hello (HelloReq) returns (HelloResp)
+
+	@handler ShortenHandler
+	post /shorten (ShortenReq) returns (ShortenResp)
+
+	@handler ResolveHandler
+	get /resolve (ResolveReq) returns (ResolveResp)
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package ping;
+option go_package = "./pb";
+
+message Placeholder{}
+
+message HelloResp{
+  string name = 1;
+}
+
+message HelloReq{
+  string name = 1;
+}
+
+message ShortenReq{
+    string longUrl = 1;
+}
+
+message ShortenResp{
+    string code = 1;
+}
+
+message ResolveReq{
+    string code = 1;
+}
+
+message ResolveResp{
+    string longUrl = 1;
+}
+
+
+service Greet {
+    rpc ping (Placeholder) returns (Placeholder);
+    rpc Hello(HelloReq) returns(HelloResp);
+
+    rpc Shorten(ShortenReq) returns (ShortenResp);
+    rpc Resolve(ResolveReq) returns (ResolveResp);
+}
+
