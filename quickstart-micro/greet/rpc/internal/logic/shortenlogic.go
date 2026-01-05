@@ -40,6 +40,13 @@ func (l *ShortenLogic) Shorten(in *pb.ShortenReq) (*pb.ShortenResp, error) {
 		return nil, err
 	}
 
+	key := cachePrefix + code
+	if err := l.svcCtx.Redis.Setex(key, in.LongUrl, int(cacheTTL.Seconds())); err != nil {
+		l.Logger.Errorf("[cache-set-error] code=%s err=%v", code, err)
+	} else {
+		l.Logger.Infof("[cache-set] code=%s ttl=%ds", code, int(cacheTTL.Seconds()))
+	}
+
 	return &pb.ShortenResp{
 		Code: code,
 	}, nil
