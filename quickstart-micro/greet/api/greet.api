@@ -37,4 +37,5 @@ service greet {
 	@handler ResolveHandler
 	get /resolve (ResolveReq) returns (ResolveResp)
 }
+//test
 
