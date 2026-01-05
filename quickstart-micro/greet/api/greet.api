@@ -7,6 +7,9 @@ type (
 	HelloReq {
 		Name string `form:"name,optional"`
 	}
+	Hello {
+    		Name string `json:"name"`
+    }
 	HelloResp {
 		Name string `json:"name"`
 	}
