@@ -37,5 +37,5 @@ service greet {
 	@handler ResolveHandler
 	get /resolve (ResolveReq) returns (ResolveResp)
 }
-//test
+//now , this is feature branch
 
