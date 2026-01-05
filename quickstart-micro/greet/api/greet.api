@@ -40,5 +40,5 @@ service greet {
 	@handler ResolveHandler
 	get /resolve (ResolveReq) returns (ResolveResp)
 }
-//now
+//now,this is new feature
 
